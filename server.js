@@ -8,13 +8,12 @@ app.get('/', async (req,res)=>{
         const url = 'https://api.themoviedb.org/3/movie/popular?api_key=fd509da5346a56c38b537aec86c56b8a&language=en-US&page=1';
         const getmovie = await axios(url)
     
-        const data = getmovie.data.results;
-        console.log(data)
-        
+        const datas = getmovie.data.results 
 
-        res.render('index',{getmovies:data})
+        console.log(datas)
+        res.render('index',{articles:datas})
         
-    }
+    }   
     catch(err) {
         console.log(err)
     }

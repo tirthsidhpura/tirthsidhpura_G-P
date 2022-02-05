@@ -5,18 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie DB</title>
+    
+    <style>
+        .movies{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .container img {
+            width: 300px;
+        }
+        .container{
+            display: flex;
+            flex: 15%;
+            flex-direction: column;
+            background-color: red;
+            margin: 10px;
+            padding: 2px;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-    <% if (articles) {  %>
-        <% for (const [key, article] of Object.entries(articles)) { %>
+    <div class="movies">
 
-            <%= article.title %>
-            <img src="https://image.tmdb.org/t/p/w500/<%-article.poster_path %>" alt="">
-        <% } %>
-    <% } else { %>
-
-        <p>hello1</p>
-    <% } %>
+        <% articles.forEach(function(article){ %>
+            <div class="container">
+                <img src="https://image.tmdb.org/t/p/w500/<%-article.poster_path %>" alt="">
+             <h2>
+                 <%= article.title %>
+                </h2>   
+                <p>
+                    <%= article.overview %>
+             </p>
+            </div>
+            <% }); %>
+        </div>
 </body>
-
 </html>

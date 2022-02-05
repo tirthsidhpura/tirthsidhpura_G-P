@@ -7,12 +7,15 @@
     <title>Movie DB</title>
 </head>
 <body>
-    <h2>
+    <% if (articles) {  %>
+        <% for (const [key, article] of Object.entries(articles)) { %>
 
+            <%= article.title %>
+            <img src="https://image.tmdb.org/t/p/w500/<%-article.poster_path %>" alt="">
+        <% } %>
+    <% } else { %>
 
-    </h2>
-    <% for(let i = 0; i <= getmovies.length; i++ ){ %>
-        <h1> <%=  getmovies.backdrop_path  %></h1>
+        <p>hello1</p>
     <% } %>
 </body>
 
